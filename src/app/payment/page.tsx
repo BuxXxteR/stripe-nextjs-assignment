@@ -2,8 +2,10 @@
 
 import React from "react";
 import styles from "./page.module.css";
+
+import { loadStripe } from "@stripe/stripe-js";
 import {
-  // Elements,
+  Elements,
   // CardElement,
   useStripe,
   useElements,
@@ -13,27 +15,16 @@ import {
 } from "@stripe/react-stripe-js";
 
 const PaymentPage = () => {
+  const stripePromise = loadStripe(process.env.STRIPE_PK!);
   //   const stripe = useStripe();
   //   const elements = useElements();
 
   return (
     <div className={styles.mainDiv}>
-      <CardNumberElement
-        id="cardNumber"
-        // options={stripeInputOptions}
-        // onChange={(e) => {
-        //   handleChangeStripe(e);
-        //   console.log("RUN THIS");
-        // }}
-        // onReady={(e) => {
-        //   e.focus();
-        //   setClick({
-        //     ...isClick,
-        //     CardNumber: true,
-        //   });
-        //   handleChange({ Number: "1" });
-        // }}
-      />
+      ABCD
+      <Elements stripe={stripePromise}>
+        <CardNumberElement></CardNumberElement>
+      </Elements>
     </div>
   );
 };
