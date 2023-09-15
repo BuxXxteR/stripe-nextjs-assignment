@@ -1,8 +1,8 @@
 .main {
 }
 .mainDiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
+}
+.title {
+  margin-bottom: 20px;
 }
