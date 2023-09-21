@@ -2,6 +2,7 @@
 
 import React from "react";
 import styles from "./page.module.css";
+import axios from "axios";
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -14,9 +15,24 @@ const stripePromise = loadStripe(
   "pk_test_51Nmqt0Ap5WSNbPsatkBXTwjhJzM7jnKWjcZaHBn7z2iUdN1gw0DvTBpIGKIF9ZP6lW4yC0qFy1dN5g1jNuzzh59q00ll2PycAI"
 );
 
+// BASE URLS
+const PAYPAL_BASE_URL = process.env.PAYPAL_BASE_URL;
+
 const PaymentPage = () => {
   // const stripe = useStripe();
   // const elements = useElements();
+
+  const handleOnClick = async () => {
+    try {
+      const res = await axios.post(
+        `https://nestjs-boiler-plate-production.up.railway.app/test/test-post-request`
+      );
+
+      console.log(res, "res");
+    } catch (err) {
+      console.log(`Catch error: ${err}`);
+    }
+  };
 
   return (
     <div className={styles.mainDiv}>
@@ -29,7 +45,9 @@ const PaymentPage = () => {
         </div>
       </div>
       <div>
-        <div className={styles.title}>PAYPAL PAYMENT</div>
+        <div onClick={handleOnClick} className={styles.title}>
+          PAYPAL PAYMENT
+        </div>
         <div>
           <PaypalPayment />
         </div>
