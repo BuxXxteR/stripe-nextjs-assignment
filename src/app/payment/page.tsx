@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import StripePayment from "../Components/Payments/StripePayment/index";
+import { PaypalPayment } from "../Components/Payments/PaypalPayment/PaypalPayment";
 
 const STRIPE_PK = process.env.STRIPE_PK;
 
@@ -19,11 +20,19 @@ const PaymentPage = () => {
 
   return (
     <div className={styles.mainDiv}>
-      <div className={styles.title}>STRIPE PAYMENT</div>
       <div>
-        <Elements stripe={stripePromise}>
-          <StripePayment />
-        </Elements>
+        <div className={styles.title}>STRIPE PAYMENT</div>
+        <div>
+          <Elements stripe={stripePromise}>
+            <StripePayment />
+          </Elements>
+        </div>
+      </div>
+      <div>
+        <div className={styles.title}>PAYPAL PAYMENT</div>
+        <div>
+          <PaypalPayment />
+        </div>
       </div>
     </div>
   );

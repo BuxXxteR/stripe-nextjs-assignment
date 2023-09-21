@@ -61,7 +61,9 @@ const nextConfig = {
     BASE_URL: process.env.BASE_URL,
     AUTH_BASE_URL: process.env.AUTH_BASE_URL,
     STRIPE_BASE_URL: process.env.STRIPE_BASE_URL,
+    PAYPAL_BASE_URL: process.env.PAYPAL_BASE_URL,
     STRIPE_PK: process.env.STRIPE_PK,
+    PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
   },
 };
 
